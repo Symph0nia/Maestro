@@ -23,6 +23,42 @@ ld maestro.o -o maestro
 GOOS=linux GOARCH=amd64 go build -o maestro ./maestro.go
 ```
 
+### Python 语言
+
+对于 Python 语言编写的 Maestro，编译方法示例（以 Linux 平台和 amd64 架构为例）：
+
+```shell
+pyinstaller --onefile maestro.py
+```
+
+或者直接使用Python
+
+```shell
+python maestro.py
+```
+
+### Rust 语言
+
+对于 Rust 语言编写的 Maestro，编译方法示例（以 Linux 平台和 amd64 架构为例）：
+
+```shell
+cargo build
+```
+
+### Perl 语言
+
+对于 Perl 语言编写的 Maestro，编译方法示例（以 Linux 平台和 amd64 架构为例）： 
+
+```shell
+pp -o maestro maestro.pl
+```
+
+或者直接使用Perl
+
+```shell
+./maestro.pl
+```
+
 ## 后门连接方法
 
 无论是哪种编译方法产生的 Maestro 后门程序，都可以通过以下命令与后门建立连接：
@@ -60,6 +96,42 @@ For Maestro written in Go language, supporting various architectures (example fo
 
 ```shell
 GOOS=linux GOARCH=amd64 go build -o maestro ./maestro.go
+```
+
+### Python Language
+
+For Maestro written in Python, an example of the compilation method (for Linux platform and amd64 architecture) is as follows:
+
+```shell
+pyinstaller --onefile maestro.py
+```
+
+Or, you can directly use Python:
+
+```shell
+python maestro.py
+```
+
+### Rust Language
+
+For Maestro written in Rust, an example of the compilation method (for the Linux platform and amd64 architecture) is as follows:
+
+```shell
+cargo build
+```
+
+### Perl Language
+
+For Maestro written in Perl, an example of the compilation method (for the Linux platform and amd64 architecture) is as follows:
+
+```shell
+pp -o maestro maestro.pl
+```
+
+Or, you can directly use Perl:
+
+```shell
+./maestro.pl
 ```
 
 ## Backdoor Connection Method
