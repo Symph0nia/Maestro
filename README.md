@@ -1,28 +1,34 @@
 # Maestro 后门
 
-Maestro 是一个用汇编语言编写的 Linux 后门程序，专为 x86_64 架构设计。它功能强大且体积小巧，整个程序只有几KB，适用于需要隐蔽性高的环境。使用该后门，可以在指定端口上监听来自攻击者的连接，从而控制受影响的系统。
+Maestro 后门程序是为在多种架构上运行的 Linux 系统设计的，采用多种编程语言编写，以确保其在不同环境下的高隐蔽性和灵活性。作为一个基础的后门工具，Maestro 提供了监听指定端口并接受来自攻击者连接的核心功能，使得用户可以远程控制受影响的系统。
 
-## 特点
-
-- **极小的体积**：整个后门只有几KB大小。
-- **专为 x86_64 架构设计**：充分利用该架构的特性，进行高效的后门操作。
-- **简单易用**：通过简单的命令就可以编译和使用。
+由于 Maestro 只实现了最基本的后门功能，它可以作为开发更复杂后门应用的起点。开发者可以在此基础上扩展其功能，例如增加文件传输、执行远程命令、环境探测和数据加密通信等高级特性。这种设计方式允许个性化定制，满足特定安全测试或渗透任务的需求。
 
 ## 编译方法
 
-要编译 Maestro，您需要使用 nasm（Netwide Assembler）和 GNU 链接器。以下是编译 Maestro 的步骤：
+### Assembly 语言
 
-```assembly
+对于汇编语言编写的 Maestro，适用于 x86_64 架构的编译方法如下：
+
+```shell
 nasm -f elf64 maestro.asm -o maestro.o
 ld maestro.o -o maestro
 ```
 
-## 使用方法
+### Go 语言
 
-启动 Maestro 后门非常简单。一旦编译完成，您可以在目标机器上运行它，并通过以下命令与后门建立连接：
+对于 Go 语言编写的 Maestro，支持多种架构的编译方法示例（以 Linux 平台和 amd64 架构为例）：
 
 ```shell
-nc <ip> 12345
+GOOS=linux GOARCH=amd64 go build -o maestro ./maestro.go
+```
+
+## 后门连接方法
+
+无论是哪种编译方法产生的 Maestro 后门程序，都可以通过以下命令与后门建立连接：
+
+```shell
+nc localhost 12345
 ```
 
 请确保您有足够的权限在目标系统上执行这些操作，并注意使用后门与系统进行交互可能会引起安全问题，请在合法的范围内使用。
@@ -33,29 +39,35 @@ README使用GPT4生成
 
 # Maestro Backdoor
 
-Maestro is an assembly language written Linux backdoor for the x86_64 architecture. It is powerful and extremely compact, with the entire program being only a few KB in size, making it suitable for environments where stealth is paramount. This backdoor allows for listening on a specified port for connections from an attacker, thereby controlling the affected system.
+The Maestro backdoor program is designed for Linux systems running on various architectures and is written in multiple programming languages to ensure high stealthiness and flexibility in different environments. As a basic backdoor tool, Maestro provides the core functionality of listening on a specified port and accepting connections from attackers, allowing users to remotely control affected systems.
 
-## Features
-
-- **Extremely small size**: The entire backdoor is only a few KB.
-- **Designed for x86_64 architecture**: Fully utilizes the features of this architecture for efficient backdoor operations.
-- **Easy to use**: Compilation and use involve simple commands.
+Since Maestro implements only the most basic backdoor functions, it serves as a starting point for developing more complex backdoor applications. Developers can extend its functionality, for example, by adding file transfer, remote command execution, environment probing, and encrypted communications. This design approach allows for customization to meet specific security testing or penetration tasks.
 
 ## Compilation Method
 
-To compile Maestro, you need to use nasm (Netwide Assembler) and the GNU linker. Here are the steps to compile Maestro:
+### Assembly Language
 
-```assembly
+For Maestro written in assembly language, suitable for the x86_64 architecture, the compilation method is as follows:
+
+```shell
 nasm -f elf64 maestro.asm -o maestro.o
 ld maestro.o -o maestro
 ```
 
-## Usage
+### Go Language
 
-Starting the Maestro backdoor is straightforward. Once compiled, you can run it on the target machine and establish a connection with the backdoor using the following command:
+For Maestro written in Go language, supporting various architectures (example for Linux platform and amd64 architecture):
 
 ```shell
-nc <ip> 12345
+GOOS=linux GOARCH=amd64 go build -o maestro ./maestro.go
+```
+
+## Backdoor Connection Method
+
+Regardless of the compilation method used to produce the Maestro backdoor program, you can establish a connection with the backdoor using the following command:
+
+```shell
+nc localhost 12345
 ```
 
 Ensure you have sufficient permissions to perform these operations on the target system and be aware that interacting with the system through a backdoor may pose security risks. Please use it within legal boundaries.
