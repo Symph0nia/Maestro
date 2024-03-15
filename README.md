@@ -37,6 +37,14 @@ pyinstaller --onefile maestro.py
 python maestro.py
 ```
 
+### Rust语言
+
+对于 Rust 语言编写的 Maestro，编译方法示例（以 Linux 平台和 amd64 架构为例）：
+
+```shell
+cargo build
+```
+
 ## 后门连接方法
 
 无论是哪种编译方法产生的 Maestro 后门程序，都可以通过以下命令与后门建立连接：
@@ -88,6 +96,14 @@ Or, you can directly use Python:
 
 ```shell
 python maestro.py
+```
+
+### Rust Language
+
+For Maestro written in Rust, an example of the compilation method (for the Linux platform and amd64 architecture) is as follows:
+
+```shell
+cargo build
 ```
 
 ## Backdoor Connection Method
