@@ -17,10 +17,24 @@ ld maestro.o -o maestro
 
 ### Go 语言
 
-对于 Go 语言编写的 Maestro，支持多种架构的编译方法示例（以 Linux 平台和 amd64 架构为例）：
+对于 Go 语言编写的 Maestro，编译方法示例（以 Linux 平台和 amd64 架构为例）：
 
 ```shell
 GOOS=linux GOARCH=amd64 go build -o maestro ./maestro.go
+```
+
+### Python语言
+
+对于 Python 语言编写的 Maestro，编译方法示例（以 Linux 平台和 amd64 架构为例）：
+
+```shell
+pyinstaller --onefile maestro.py
+```
+
+或者直接使用Python
+
+```shell
+python maestro.py
 ```
 
 ## 后门连接方法
@@ -60,6 +74,20 @@ For Maestro written in Go language, supporting various architectures (example fo
 
 ```shell
 GOOS=linux GOARCH=amd64 go build -o maestro ./maestro.go
+```
+
+### Python Language
+
+For Maestro written in Python, an example of the compilation method (for Linux platform and amd64 architecture) is as follows:
+
+```shell
+pyinstaller --onefile maestro.py
+```
+
+Or, you can directly use Python:
+
+```shell
+python maestro.py
 ```
 
 ## Backdoor Connection Method
